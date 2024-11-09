@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz de Wallet</title>
+  <style>
+    /* Estilo general de la página */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1b1b1b;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Estilos para el contenedor principal de la wallet */
+    .wallet {
+      width: 360px;
+      background-color: #282828;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    /* Encabezado de la wallet */
+    .wallet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .wallet-header img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .account-name {
+      font-size: 18px;
+    }
+
+    .custom-image {
+      margin: 10px 0;
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .upload-btn {
+      color: #07f13e;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 14px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .balance {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+    }
+
+    .actions div {
+      font-size: 12px;
+      color: #07f13e;
+    }
+
+    .actions div:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Contenedor para las secciones de información en la parte inferior */
+    .info-section {
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 14px;
+    }
+
+    /* Estilos para cada sección de información */
+    .info-item {
+      text-align: center;
+    }
+
+    .info-label {
+      color: #aaaaaa;
+      font-size: 12px;
+      display: block;
+    }
+
+    .info-value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Ocultar el botón de subir archivo */
+    .file-input {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor principal de la wallet -->
+  <div class="wallet">
+    <!-- Encabezado de la wallet -->
+    <div class="wallet-header">
+      <img src="https://via.placeholder.com/30" alt="Logo">
+      <span class="account-name">Cuenta del alumno</span>
+      <img src="https://via.placeholder.com/30" alt="Icono">
+    </div>
+
+    <!-- Imagen personalizada -->
+    <img src="https://via.placeholder.com/340x180" alt="Imagen personalizada" class="custom-image" id="customImage">
+
+    <!-- Botón para subir una imagen -->
+    <label for="fileInput" class="upload-btn">Subir imagen</label>
+    <input type="file" id="fileInput" class="file-input" accept="image/*">
+
+    <!-- Balance de la cuenta -->
+    <div class="balance">$3500 MXN</div>
+
+    <!-- Opciones de acción -->
+    <div class="actions">
+      <div>Comprar y vender</div>
+      <div>Enviar</div>
+      <div>Cambiar</div>
+    </div>
+
+    <!-- Información en la parte inferior: Horas, Valor token y Conversión a pesos -->
+    <div class="info-section">
+      <div class="info-item">
+        <span class="info-label">Horas</span>
+        <span class="info-value">15hrs</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Valor token</span>
+        <span class="info-value">$0.094407 USD</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Conversión a peso</span>
+        <span class="info-value">$1230.13</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript para cargar y mostrar la imagen seleccionada -->
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const customImage = document.getElementById('customImage');
+
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        customImage.src = URL.createObjectURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+
